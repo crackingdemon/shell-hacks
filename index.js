@@ -296,7 +296,7 @@ app.post("/save-draft", (req, res) => {
 
 // user routes
 
-app.get("/", async (req, res) => {
+app.get("/donate", async (req, res) => {
   const { token } = req.cookies;
   if (verifyToken(token)) {
     const verify = jwt.verify(token, JWT_SECRET);
@@ -363,6 +363,11 @@ app.get("/orders", async (req, res) => {
   } else {
     res.redirect("/login");
   }
+});
+
+//main site route
+app.get("/", (req, res) => {
+  res.render("food");
 });
 
 // user dashboard portal
